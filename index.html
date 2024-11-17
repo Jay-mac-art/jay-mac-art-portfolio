@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jayant Kumar Bhati - Web3 & Blockchain Developer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8B5CF6;
+            --primary-dark: #7C3AED;
+            --secondary: #F3E8FF;
+            --accent: #C084FC;
+            --text: #ffffff;
+            --bg: #000000;
+            --border: #282C34;
+            --glow: #EC4899; /* Pink for glow effect */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background: linear-gradient(
+                135deg,
+                #8B5CF6,    /* Purple */
+                #EC4899,    /* Pink */
+                #6D28D9,    /* Deep Purple */
+                #3B82F6,    /* Blue */
+                #9333EA,    /* Bright Purple */
+                #F472B6,    /* Light Pink */
+                #4F46E5,    /* Indigo */
+                #7C3AED     /* Violet */
+            );
+            background-size: 400% 400%;
+            color: var(--text);
+            padding: 6rem 0 4rem;
+            text-align: center;
+            overflow: hidden;
+            animation: gradientFlow 20s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid var(--bg);
+            margin-bottom: 2rem;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            color: var(--secondary);
+        }
+
+        nav {
+            background: var(--bg);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(-- primary-dark);
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--primary);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .skill-card {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(255,255,255,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(255,255,255,0.2);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(255,255,255,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 2rem;
+            background: var(--bg);
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 20px;
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--glow);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .contact-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .contact-link:hover::after {
+            width: 100%;
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--text);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .skills-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://i.ibb.co/DGv7fMg/photo-6059747046027541974-y-1.jpg" alt="Jayant Kumar Bhati" class="profile-img">
+        <h1>Jayant Kumar Bhati</h1>
+        <p class="tagline">Fullstack Engineer specializing in blockchain and Web3</p>
+        <p>Experienced developer with expertise in creating secure and scalable Web3 solutions</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Education </a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p>I am an experienced Fullstack Engineer with a specialization in blockchain and Web3 technologies. I have a proven track record of developing innovative decentralized applications, enhancing platform reliability, and implementing smart contracts. My expertise in microservices and backend development allows me to seamlessly manage complex projects, demonstrating a dedication to creating secure and scalable solutions in the Web3 ecosystem.</p>
+        </div>
+    </section>
+
+    <section id="skills" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Backend & Infrastructure</h3>
+                    <p>Node.js, NestJS, Express.js, Microservices, AWS Lambda, Docker, Kubernetes, Redis, RabbitMQ</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Blockchain & Web3</h3>
+                    <p>Solidity, Smart Contracts, Ethereum, Fabric, Web3.js, ERC1155, ERC721</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Databases & Tools</h3>
+                    <p>MongoDB, PostgreSQL, Redis, TypeORM, Sequelize, Git, GraphQL</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Languages</h3>
+                    <p>TypeScript, JavaScript, C++, Solidity, Rust, Go</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Kalp Studio</h3>
+                        <p>Low-code Web3 development platform for creating fast, secure, and scalable dApps. Handled backend complexity, allowing focus on innovative Web3 solutions.</p> 
+                        <br>
+                        <a href="https://www.kalp.studio/" class="contact-link" target="_blank">Link</a>
+                        <br>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>MyIpr</h3>
+                        <p>Private blockchain (Kalptantra) based IP Rights Management portal. Implemented user invitations, profile updates, notifications, and invoice generation.</p>
+                         <br>
+                         <a href="https://www.myipr.io/" class="contact-link" target="_blank">Link</a>
+                        <br>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Kalp NFTM</h3>
+                        <p>Private blockchain asset management for Hastinapur VR game. Designed backend schemas, smart contracts on Polygon, and AWS Lambda integration for image compression.</p>
+                         <br>
+                         <a href="https://niftiq.io/" class="contact-link" target="_blank">Link</a>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Research Paper Published</h3>
+                    <p><strong>E-Voting Blockchain (2021)</strong></p>
+                    <p>Published in IJEAST: <a href="https://www.ijeast.com/papers/403-405,Tesma601,IJEAST.pdf" target="_blank">View Paper</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Mai Labs (09/2022 - Present)</h3>
+                    <p><strong>Full Stack Web 3 Developer</strong></p>
+                    <p>Developing blockchain solutions including Kalp Studio, MyIpr, and various internal services. Implementing smart contracts and managing microservices architecture.</p>
+                    <br>
+                    <a href="https://mailabs.io/" class="contact-link" target="_blank">Link</a>
+                    <br>
+                </div>
+                <div class="timeline-item">
+                    <h3>Its Credible (06/2022 - 09/2022)</h3>
+                    <p><strong>Full Stack Web3 Developer</strong></p>
+                    <p>Developed digital certificate platform with Polygon-based smart contracts (ERC 721) and implemented file storage systems.</p>
+                    <br>
+                    <a href="https://itscredible.com/" class="contact-link" target="_blank">Link</a>
+                    <br>
+                </div>
+                <div class="timeline-item">
+                    <h3>Kellton Tech (02/2021 - 06/2022)</h3>
+                    <p><strong>Full Stack Web3 Developer</strong></p>
+                    <p>Worked on Humbl Gallery, a Web3 NFT marketplace for sports memorabilia, partnering with NHL and NBA.</p>
+                    <br>
+                    <a href="https://app.humbl.pro/?tabs=Posts" class="contact-link" target="_blank">Link</a>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/jayant-kumar-7722ss/" class="contact-link" target="_blank">LinkedIn</a>
+                <a href="mailto:jayantk7722@gmail.com" class="contact-link">Email</a>
+                <a href="tel:7011094328" class="contact-link">Phone</a>
+                  <a href="https://www.linkedin.com/in/jayant-kumar-7722ss/" class="contact-link" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Jayant Kumar Bhati | Full Stack Web3 Developer</p>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const header = document.querySelector('header');
+        document.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            const x = (clientX / window.innerWidth) * 20 - 10;
+            const y = (clientY / window.innerHeight) * 20 - 10;
+            header.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+        });
+
+        header.addEventListener('mouseleave', () => {
+            header.style.transform = 'rotateY(0deg) rotateX(0deg)';
+        });
+    </script>
+</body>
+</html>
